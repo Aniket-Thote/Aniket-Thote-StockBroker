@@ -1,145 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/Style.css">
     <title>Thank You Page</title>
     <style>
         body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: #f5f5f5;
-    overflow: hidden;
-}
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #f5f5f5;
+            overflow: hidden;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
 
-/* Add diagonal yellow and green background */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg,
-        #ffcc4d 27%,
-        #ffcc4d 27%,
-        white 27%,
-        white 75%,
-        #24b24b 75%
-    );
-    z-index: -1;
-}
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                    #4be975 27%,
+                    #4be975 27%,
+                    white 27%,
+                    white 75%,
+                    var(--theme1-color1) 75%);
+            z-index: -1;
+        }
 
-.thank-you-container {
-    text-align: center;
-}
+        .thank-you-card {
+            border-radius: 2px;
+            max-width: 700px;
+            text-align: center;
+            padding: 30px;
+            overflow: auto;
+        }
 
-.thank-you-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px 40px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: auto;
-}
+        .checkmark {
+            font-size: 48px;
+            color: #24b24b;
+            margin-bottom: 20px;
+        }
 
-.checkmark {
-    font-size: 48px;
-    color: #24b24b;
-    margin-bottom: 20px;
-}
+        .thank-you-card > h1{
+            color: var(--default-text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
 
-h1 {
-    font-size: 28px;
-    color: #333333;
-    margin-bottom: 10px;
-}
+        .thank-you-card > p{
+            color: rgb(100, 100, 100);
+            text-align: center;
+        }
 
-p {
-    font-size: 16px;
-    color: #555555;
-    line-height: 1.5;
-    margin-bottom: 30px;
-}
+        .highlight{
+            width: 100%;
+            text-align: left;
+            margin: 15px 0;
+            background-color: #f2f2f2;
+            padding: 5px 10px 5px 30px;
+            border-radius: 5px 0 0 5px;
+            border-left: 5px solid var(--theme1-color1);
+        }
 
-.actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
+        .other-info{
+            display: flex;
+        }
 
-.connect-with-us,
-.visit-website {
-    flex: 1;
-}
+        .list{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.connect-with-us h3,
-.visit-website h3 {
-    font-size: 18px;
-    color: #333333;
-    margin-bottom: 10px;
-}
+        .list > ul{
+            text-align: left;
+            list-style: circle;
+            width: 340px;
+        }
 
-.social-icons a img {
-    width: 30px;
-    margin: 0 5px;
-    transition: transform 0.2s;
-}
+        .action{
+            width: calc(100% - 340px);
+        }
 
-.social-icons a img:hover {
-    transform: scale(1.1);
-}
+        .social-media > a {
+            color: var(--theme1-color3);
+            text-decoration: none;
+        }
 
-.visit-button {
-    display: inline-block;
-    padding: 10px 20px;
-    color: #ffffff;
-    background-color: #24b24b;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.2s;
-}
+        .social-media > a:hover {
+            color: var(--theme1-color1);
+        }
 
-.visit-button:hover {
-    background-color: #1e9e41;
-}
+        .social-media{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .website-sec{
+            padding: 10px;
+        }
+
+        .btn{
+            padding: 8px 15px;
+            margin: 5px;
+        }
+
+        @media (max-width: 1200px) {
+            .thank-you-card{
+                max-width: 700px;
+                background-color: rgba(255, 255, 255, 0.658);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        @media (max-width: 585px) {
+            .other-info{
+                flex-direction: column;
+                gap: 20px;
+            }
+            .action{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 702px) {
+            body{
+                align-items: flex-start;
+                overflow: auto;
+            }
+        }
 
     </style>
 </head>
+
 <body>
-    <div class="thank-you-container">
-        <div class="thank-you-card">
-            <div class="checkmark">
-                &#10004;
+    <div class="thank-you-card">
+        <div class="checkmark">
+            &#10004;
+        </div>
+        <h1>Thank you!</h1>
+        <p>
+            Thanks For Your Purchase Dakshith capital Scanner! <br>
+            Below, we provide all the access details included in our package. You can save this file for future reference in case you lose any links. Additionally, feel free to contact us at the email address provided below.
+        </p>
+        <div class="highlight">
+            Dakshith Scanner future and options buy Scanner: 
+            <a href="https://chartink.com/screener/sell-intraday-18022391">https://chartink.com/screener/sell-intraday-18022391</a>
+        </div>
+        <div class="highlight">
+            Dakshith Scanner future and options Sell Scanner: 
+            <a href="https://chartink.com/screener/sell-intraday-18022390">https://chartink.com/screener/sell-intraday-18022390</a>
+        </div>
+        <div class="other-info">
+            <div class="list">
+                <ul>
+                    <li>Dakshith Capital - Breakout Stock Premium Group</li>
+                    <li>Dakshith - Equity-Based Intraday Group</li>
+                    <li>Dakshith Capital - Swing Trading Group</li>
+                    <li>Option Buying Telegram Channel</li>
+                    <li>Stock Option Telegram Channel</li>
+                </ul>
             </div>
-            <h1>Thank you!</h1>
-            <p>
-                We've sent your free report to your inbox so it's easy to access.
-                You can find more information on our website and social pages.
-            </p>
-            <div class="actions">
-                <div class="connect-with-us">
-                    <h3>Connect With Us</h3>
-                    <div class="social-icons">
-                        <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-                        <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
-                        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-                        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                    </div>
+            <div class="action">
+                <div class="social-media">
+                    <a href="https://t.me/DAKSHITCAPITAL">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="2em" viewBox="0 0 128 128" width="2em">
+                            <path d="m64.000002 10.847658c-29.355184.000109-53.152235 23.79716-53.152344 53.152344.000112 29.355182 23.797162 53.152228 53.152344 53.152338 29.355181-.00011 53.152228-23.797157 53.152338-53.152338-.00011-29.355182-23.797156-53.152232-53.152338-53.152344zm27.533203 23.873047c2.159355-.07872 3.794128 1.876009 2.917969 5.388672l-10.53125 49.632813c-.735207 3.5272-2.86777 4.371077-5.820313 2.742187l-16.044921-11.855469c-3.768605 3.664093-7.144432 6.945669-7.712891 7.501953-.893917.873247-1.605929 1.605469-3.210938 1.605469-2.07976 0-1.725837-.787042-2.443359-2.767578l-5.902344-18.09375-15.425781-4.816406c-3.426838-1.049871-3.45177-3.403991.769531-5.097656l61.84961-23.855469c.529657-.240389 1.056374-.3666 1.554687-.384766zm-9.810547 10.556641c-.465094-.0065-1.097161.159953-1.748047.554687l-34.767578 21.935547 5.857422 17.962891 1.160156-12.363281 29.771485-26.861329c.816659-.724929.50172-1.21776-.273438-1.228515z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="dakshithajeetkumar@gmail.com">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="2em" width="2em" version="1.1" id="_x32_" viewBox="0 0 512 512" xml:space="preserve" fill="currentColor">
+                            <g>
+                                <path class="st0" d="M440.917,67.925H71.083C31.827,67.925,0,99.752,0,139.008v233.984c0,39.256,31.827,71.083,71.083,71.083   h369.834c39.255,0,71.083-31.827,71.083-71.083V139.008C512,99.752,480.172,67.925,440.917,67.925z M178.166,321.72l-99.54,84.92   c-7.021,5.992-17.576,5.159-23.567-1.869c-5.992-7.021-5.159-17.576,1.87-23.567l99.54-84.92c7.02-5.992,17.574-5.159,23.566,1.87   C186.027,305.174,185.194,315.729,178.166,321.72z M256,289.436c-13.314-0.033-26.22-4.457-36.31-13.183l0.008,0.008l-0.032-0.024   c0.008,0.008,0.017,0.008,0.024,0.016L66.962,143.694c-6.98-6.058-7.723-16.612-1.674-23.583c6.057-6.98,16.612-7.723,23.582-1.674   l152.771,132.592c3.265,2.906,8.645,5.004,14.359,4.971c5.706,0.017,10.995-2.024,14.44-5.028l0.074-0.065l152.615-132.469   c6.971-6.049,17.526-5.306,23.583,1.674c6.048,6.97,5.306,17.525-1.674,23.583l-152.77,132.599   C282.211,284.929,269.322,289.419,256,289.436z M456.948,404.771c-5.992,7.028-16.547,7.861-23.566,1.869l-99.54-84.92   c-7.028-5.992-7.861-16.546-1.869-23.566c5.991-7.029,16.546-7.861,23.566-1.87l99.54,84.92   C462.107,387.195,462.94,397.75,456.948,404.771z"/>
+                            </g>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@DAKSHITHCAPITAL1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="2.1em" height="2.1em" viewBox="0 0 32 32" version="1.1">
+                            <path d="M12.932 20.459v-8.917l7.839 4.459zM30.368 8.735c-0.354-1.301-1.354-2.307-2.625-2.663l-0.027-0.006c-3.193-0.406-6.886-0.638-10.634-0.638-0.381 0-0.761 0.002-1.14 0.007l0.058-0.001c-0.322-0.004-0.701-0.007-1.082-0.007-3.748 0-7.443 0.232-11.070 0.681l0.434-0.044c-1.297 0.363-2.297 1.368-2.644 2.643l-0.006 0.026c-0.4 2.109-0.628 4.536-0.628 7.016 0 0.088 0 0.176 0.001 0.263l-0-0.014c-0 0.074-0.001 0.162-0.001 0.25 0 2.48 0.229 4.906 0.666 7.259l-0.038-0.244c0.354 1.301 1.354 2.307 2.625 2.663l0.027 0.006c3.193 0.406 6.886 0.638 10.634 0.638 0.38 0 0.76-0.002 1.14-0.007l-0.058 0.001c0.322 0.004 0.702 0.007 1.082 0.007 3.749 0 7.443-0.232 11.070-0.681l-0.434 0.044c1.298-0.362 2.298-1.368 2.646-2.643l0.006-0.026c0.399-2.109 0.627-4.536 0.627-7.015 0-0.088-0-0.176-0.001-0.263l0 0.013c0-0.074 0.001-0.162 0.001-0.25 0-2.48-0.229-4.906-0.666-7.259l0.038 0.244z"/>
+                        </svg>
+                    </a>
                 </div>
-                <div class="visit-website">
-                    <h3>Visit Our Website</h3>
-                    <a href="#" class="visit-button">Visit Website</a>
+                <div class="website-sec">
+                    <h5>Visit Our Website</h5>
+                    <a href="#" class="btn">Visit Website</a>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
