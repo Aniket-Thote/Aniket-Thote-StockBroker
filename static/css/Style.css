@@ -2,7 +2,7 @@
     --default-text-color: black;
     --bright-color: white;
     --theme1-color1: rgb(122, 88, 169);
-    --theme1-color2: blue;/*rgb(255, 24, 0)*/
+    --theme1-color2: rgb(19 133 0);/*rgb(255, 24, 0)*/
     --theme1-color3: rgb(159, 131, 197);
     --global-transition-time: .6s;
 }
